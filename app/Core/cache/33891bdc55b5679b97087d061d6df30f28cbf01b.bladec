@@ -1,0 +1,22 @@
+<?php $_shouldextend[1]=1; ?>
+
+<?php $this->startSection('title'); ?>
+ لیگ کتابخوانی
+<?php $this->stopSection(); ?>
+
+<?php $this->startSection('content'); ?>
+ <div class="container my-3">
+ <form action="<?php echo static::e(url('admin/book')); ?>" method="post">
+ <input type='hidden' name='csrf_token' value='38c411adc8abc39c62dd42705a2a6ad4' >
+ <div>
+ <span>اسم کتاب</span><input name="name" class="form-control">
+ </div>
+ <div>
+ <span>توضیحات کتاب</span><textarea name="desc" class="form-control"></textarea>
+ </div>
+
+ <button type="submit" class="btn btn-primary text-white mt-2">ویرایش</button>
+ </form>
+ </div>
+<?php $this->stopSection(); ?>
+<?php if (@$_shouldextend[1]) { echo $this->runChild('admin.master'); } ?>

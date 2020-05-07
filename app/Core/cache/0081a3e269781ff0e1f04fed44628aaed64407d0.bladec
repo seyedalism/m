@@ -1,0 +1,47 @@
+<?php $_shouldextend[1]=1; ?>
+
+<?php $this->startSection('title'); ?>
+	لیگ کتابخوانی
+<?php $this->stopSection(); ?>
+
+<?php $this->startSection('content'); ?>
+	<div class="container justify-content-center d-flex">
+ <div class="bg-light shadow mt-3 col-10 p-2 rounded">
+ <form method="post" action="<?php echo static::e(url('admin/add-user/')); ?><?php echo static::e(($id !== -1) ? $id : ''); ?>">
+ <input type='hidden' name='csrf_token' value='4af0ff44626706e8950eaf7ac182cfd9' >
+ <input type='hidden' name='_method' value='<?php echo 'PUT'; ?>'/>
+
+ <?php if(isset($error) && !empty($error)): ?>
+ <div class="alert alert-danger">
+ <?php echo static::e($error ?? ''); ?>
+
+ </div>
+ <?php endif; ?>
+
+ <div>
+ <span>نام و نام خانوادگی </span><input name="name" class="form-control" value="<?php echo static::e($user->name ?? ''); ?>">
+ </div>
+ <div>
+ <span>نام کاربری</span><input name="username" class="form-control" value="<?php echo static::e($user->username ?? ''); ?>">
+ </div>
+ <div>
+ <span>شماره تلفن</span><input name="phone" class="form-control" value="<?php echo static::e($user->phone ?? ''); ?>">
+ </div>
+ <div>
+ <span>رمز</span><input name="password" class="form-control">
+ </div>
+ <div>
+ <span>شماره دانشجویی</span><input name="uniNum" class="form-control" value="<?php echo static::e($user->uniNum ?? ''); ?>">
+ </div>
+
+ <?php if($id === -1): ?>
+ <button class="btn btn-primary mt-2" type="submit">افزودن</button>
+ <?php else: ?>
+ <button class="btn btn-primary mt-2" type="submit" name="edit" value="edit">ویرایش</button>
+ <?php endif; ?>
+
+ </form>
+ </div>
+	</div>
+<?php $this->stopSection(); ?>
+<?php if (@$_shouldextend[1]) { echo $this->runChild('admin.master'); } ?>

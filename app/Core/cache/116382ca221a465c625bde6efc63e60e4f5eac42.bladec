@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>
+
+ <?php echo $this->yieldContent('title'); ?>
+
+	</title>
+	<link rel="stylesheet" type="text/css" href="<?php echo static::e(asset('css/bootstrap.css')); ?>">
+	<link rel="stylesheet" type="text/css" href="<?php echo static::e(asset('css/custom.css')); ?>">
+
+</head>
+<body>
+
+	<?php echo $this->runChild('admin.header'); ?>
+
+	<?php echo $this->yieldContent('content'); ?>
+
+</body>
+<script src="<?php echo static::e(asset('js/jquery.js')); ?>"></script>
+<script src="<?php echo static::e(asset('js/bootstrap.js')); ?>"></script>
+<script src="<?php echo static::e(asset('js/custom.js')); ?>"></script>
+</html>

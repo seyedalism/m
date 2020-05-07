@@ -1,0 +1,15 @@
+<?php $_shouldextend[1]=1; ?>
+
+<?php $this->startSection('title'); ?>
+	لیگ کتابخوانی
+<?php $this->stopSection(); ?>
+
+<?php $this->startSection('content'); ?>
+
+	<div class="container w-100 h-100 d-flex flex-column justify-content-center align-items-center mt-5">
+ <p class="display-3 mt-5 text-secondary">بسم الله الرحمن الرحیم</p>
+ <p class="display-3 mt-5 text-secondary">صفحه خانه</p>
+	</div>
+
+<?php $this->stopSection(); ?>
+<?php if (@$_shouldextend[1]) { echo $this->runChild('admin.master'); } ?>

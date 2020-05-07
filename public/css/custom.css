@@ -1,0 +1,49 @@
+@font-face {
+	 font-family: 'vazir';
+	 src: url('../font/Vazir.woff');
+}
+
+*{
+	direction: rtl;
+	transition: all 0.5s;
+}
+body{
+	background-color: #ecf0f1; 
+	font-size: 15px;
+	font-family: vazir !important;
+}
+
+.top-of-box
+{
+	font-weight: bold;
+	box-shadow: 0px 2px 20px black;
+	top: -30px;
+	left: 5%;
+	background-color: #3498db;
+	text-align: center;
+}
+
+.shadow{
+	box-shadow: 0px 3px 5px #7f8c8d;
+}
+
+.big
+{
+	font-size: 1.3rem;
+}
+
+.counter
+{
+	z-index: 100;
+	position: fixed;
+	bottom: 0;
+	left: 50%;
+	margin-right: -50%;
+    transform: translate(-50%, -50%)
+}
+
+.question ul
+{
+	padding: 0;
+	list-style-type: none;
+}

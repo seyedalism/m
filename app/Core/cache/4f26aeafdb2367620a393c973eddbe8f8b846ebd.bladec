@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>
+
+ <?php echo $this->yieldContent('title'); ?>
+
+	</title>
+	<link rel="stylesheet" type="text/css" href="<?php echo static::e(asset('css/bootstrap.css')); ?>">
+	<link rel="stylesheet" type="text/css" href="<?php echo static::e(asset('css/custom.css')); ?>">
+
+</head>
+<body>
+
+	<?php echo $this->runChild('header'); ?>
+
+	<?php echo $this->yieldContent('content'); ?>
+
+	<?php echo $this->runChild('footer'); ?>
+
+</body>
+<script src="<?php echo static::e(asset('js/jquery.js')); ?>"></script>
+<script src="<?php echo static::e(asset('js/bootstrap.js')); ?>"></script>
+<script src="<?php echo static::e(asset('js/sweetalert.min.js')); ?>"></script>
+<script src="<?php echo static::e(asset('js/custom.js')); ?>"></script>
+
+<?php if(isset($loggedIn) && $loggedIn): ?>
+
+<script type="text/javascript">
+	swal({
+	  title: "با موفقیت وارد شدید!",
+	  icon: "success",
+	  button: "ok",
+	});
+</script>
+
+<?php elseif(isset($loggedIn) && !$loggedIn): ?>
+
+<script type="text/javascript">
+
+	swal({
+	  title: "ورود ناموفق!",
+	  icon: "warning",
+	  button: "ok",
+	});
+</script>
+
+<?php endif; ?>
+
+</html>

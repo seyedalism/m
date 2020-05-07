@@ -1,0 +1,13 @@
+ErrorDocument 404 /views/error/404.html
+ErrorDocument 503 /views/error/503.html
+
+
+RewriteEngine On
+
+RewriteBase /public
+
+RewriteCond %{REQUEST_FILE} !f
+RewriteCond %{REQUEST_FILE} !d
+RewriteCond %{REQUEST_URI} !public
+
+RewriteRule ^(.*[\s\S]*)$ index.php?url=$1 [QSA,NC,L]

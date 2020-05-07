@@ -1,0 +1,55 @@
+<?php $_shouldextend[1]=1; ?>
+
+<?php $this->startSection('title'); ?>
+	لیگ کتابخوانی
+<?php $this->stopSection(); ?>
+
+<?php $this->startSection('content'); ?>
+
+<div class="container">
+	
+	<div class="bg-light shadow p-2 rounded mt-3">
+ <form action="<?php echo static::e(url('admin/manage-leages')); ?>" method="post">
+ <input type='hidden' name='_method' value='<?php echo 'PUT'; ?>'/>
+ <input type='hidden' name='csrf_token' value='2a610c1c88487bc8d68a7ea26dad9619' >
+ <div>
+ <span>نام لیگ :</span>
+ <input name="name" class="form-control">
+ </div>
+ <div>
+ <span>زمان شروع</span>
+ <input name="start" type="datetime-local" class="form-control">
+ </div>
+ <div>
+ <span>زمان پایان</span>
+ <input name="end" type="number" class="form-control">
+ </div>
+ <div>
+ <button type="submit" class="btn btn-primary mt-2">افزودن</button>
+ </div>
+ </form>
+	</div>
+
+	<div class="bg-light shadow p-2 rounded mt-3">
+ <table class="table table-hover table-bordered">
+ <tr>
+ <th>نام لیگ</th>
+ <th>افزودن سوال</th>
+ <th>حذف</th>
+ </tr>
+
+ <?php $__currentLoopData = $leages; $this->addLoop($__currentLoopData); foreach($__currentLoopData as $leage): $this->incrementLoopIndices(); $loop = $this->getFirstLoop(); ?>
+ <tr>
+ <td><?php echo static::e($leage->name); ?></td>
+ <td><a href="<?php echo static::e(url('admin/add-question/'.$leage->id)); ?>">افزودن سوال</a></td>
+ <td><a href="<?php echo static::e(url('admin/delete-leage/'.$leage->id)); ?>">حذف</a></td>
+ </tr>
+ <?php endforeach; $this->popLoop(); $loop = $this->getFirstLoop(); ?>
+
+ </table>
+	</div>
+
+</div>
+
+<?php $this->stopSection(); ?>
+<?php if (@$_shouldextend[1]) { echo $this->runChild('admin.master'); } ?>

@@ -1,0 +1,22 @@
+<?php $_shouldextend[1]=1; ?>
+
+<?php $this->startSection('title'); ?>
+	لیگ کتابخوانی
+<?php $this->stopSection(); ?>
+
+<?php $this->startSection('content'); ?>
+	<div class="container my-3 col-12 col-md-4">
+ <form action="<?php echo static::e(url('admin/login')); ?>" method="post">
+ <input type='hidden' name='csrf_token' value='80fd84e29a7eb11bdd24d02a83d55466' >
+ <div>
+ <span>نان کاربری</span><input name="username" class="form-control" style="direction: ltr !important;">
+ </div>
+ <div>
+ <span>رمز ورود</span><input name="password" class="form-control" style="direction: ltr !important;">
+ </div>
+ 
+ <button type="submit" class="btn btn-primary text-white mt-2">ورود</a>
+ </form>
+	</div>
+<?php $this->stopSection(); ?>
+<?php if (@$_shouldextend[1]) { echo $this->runChild('admin.master'); } ?>
